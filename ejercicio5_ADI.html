@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuberías y Filtros</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #88A3E2;
+    }
+
+    .container {
+        text-align: center;
+        background-color: #B7A6F6;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #C37EDB;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #723e83;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Patrón Tuberías y Filtros</h1>
+        <label for="numero">Ingrese un número:</label><br>
+        <input type="number" id="numero"><br>
+        <button onclick="aplicarFiltros()">Aplicar Filtros</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        // F1 Filtrar los números impares
+        function filtroImpares(numero) {
+            return numero % 2 !== 0;
+        }
+
+        // F2 Multiplicar los números filtrados por 2
+        function filtroMultiplicarPorDos(numero) {
+            return numero * 2;
+        }
+
+        // F3 Sumar 10 a los números resultantes
+        function filtroSumarDiez(numero) {
+            return numero + 10;
+        }
+
+        // Aplica filtros
+        function aplicarFiltros() {
+            let numero = parseInt(document.getElementById("numero").value);
+            let resultadoFiltro1 = filtroImpares(numero);
+            let resultadoFiltro2 = filtroMultiplicarPorDos(resultadoFiltro1 ? numero : 0);
+            let resultadoFinal = filtroSumarDiez(resultadoFiltro2);
+            document.getElementById("resultado").innerHTML = "Resultado final después de aplicar los filtros: " + resultadoFinal;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 1</title>
+    <style>
+        #circulo {
+            width: 80px;
+            height: 80px;
+            background-color: rgb(223, 138, 211);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            animation: moveRight 2s infinite alternate;
+            border-radius: 50%;
+        }
+
+        @keyframes moveRight {
+            0% { left: 0; }
+            100% { left: calc(100% - 50px); }
+        }
+        .stopAnimation {
+            animation: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="circulo"></div>
+
+    <script>
+        function checkBatteryStatus() {
+            navigator.getBattery().then(function(battery) {
+                
+                if (battery.charging || battery.level > 0.1) {
+                    document.getElementById("circulo").classList.remove("stopAnimation");
+                } else {
+                    document.getElementById("circulo").classList.add("stopAnimation");
+                }
+            });
+        }
+
+        navigator.getBattery().then(function(battery) {
+            battery.addEventListener('chargingchange', checkBatteryStatus);
+            battery.addEventListener('levelchange', checkBatteryStatus);
+        });
+        checkBatteryStatus();
+    </script>
+</body>
+</html>

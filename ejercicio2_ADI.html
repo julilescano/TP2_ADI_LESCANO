@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5d5f1;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/004/938/641/non_2x/grid-square-pink-background-vector.jpg);
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #b375ab;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 0 10px #644970;
+        }
+        h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid ;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #66afe9;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color:#3ed3d3;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        input[type="submit"] {
+            background-color: #3ed3d3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cc1c9;
+            
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        <h2> Formulario de registro</h2>
+        <label for="nombre">Usuario:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre de usuario" required>
+        <div class="tooltip">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Ingrese correo electrónico" required>
+            <span class="tooltiptext">  Completar para enviar confirmación</span>
+        </div>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese contraseña" required>
+        <input type="submit" value="Registrarse">
+    </form>
+</body>
+</html>
